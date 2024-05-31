@@ -1,4 +1,4 @@
-components=["frontend","catalogue","cart","user","shipping","payment","mongodb","mysql","rabbitmq","redis","dispatch"]
+components=["frontend","catalogue","cart","user","shipping","payment","dispatch"]
 
 resource "aws_instance" "instance" {
   count = length(var.components)
