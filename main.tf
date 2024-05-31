@@ -10,3 +10,12 @@ resource "aws_instance" "instance" {
   }
 
 }
+
+resource "aws_route53_record" "record" {
+  count    = length(var.components)
+  name    = var.components[count.index]
+  zone_id = "Z047712533ZBGAR3UXSLX"
+  type = "A"
+  records = [aws_instance.instance[count.index].private_ip]
+  ttl = 3
+}
